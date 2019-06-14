@@ -13,17 +13,14 @@ for filename in sys.argv[1:]:
     # create a plot of the transposed data
     ax = data.plot(title=filename)
 
-    # display the plot
-    plt.show()
-
-    #set some plot
-    ax.set_xlabel("YEar")
-    ax.set_yLabel ("GDP per capita")
+    #set some plot attributes
+    ax.set_xlabel("Year")
+    ax.set_ylabel ("GDP per capita")
     #set the x locations and lebels
     ax.set_xticks(range(len(data.index)))
-    ax.set_xtickslabels(data.index, rotation =45)
+    ax.set_xticklabels(data.index, rotation =45)
 
-    #display the plot
+    #Save the plot with unique file name
     split_name=filename.split(".")
-    save_name=split_name[0] + "png"    
-    pit.savefig (save_name)
+    save_name=split_name[0] + 'png'    
+    plt.savefig (save_name)
